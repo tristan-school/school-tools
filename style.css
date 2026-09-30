@@ -1,0 +1,64 @@
+/* Clean layout wrapper */
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: #f8fafc;
+    color: #1e293b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.dashboard-container {
+    text-align: center;
+    width: 100%;
+    max-width: 650px;
+    padding: 20px;
+}
+
+h1 {
+    color: #0f172a;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+/* Flexbox rows for unified spacing */
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px; /* Horizontal space between buttons */
+    margin-bottom: 16px; /* Vertical space between rows */
+}
+
+/* Button UI styling */
+.tool-btn {
+    flex: 1; /* Makes all buttons in a row identical in size */
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #334155;
+    background-color: #ffffff;
+    padding: 14px 24px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover styles */
+.tool-btn:hover {
+    background-color: #4f46e5;
+    color: #ffffff;
+    border-color: #4f46e5;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.2);
+}
+
+/* Triggered by JavaScript during a click */
+.tool-btn.clicked {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
