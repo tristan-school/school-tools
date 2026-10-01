@@ -1,1 +1,135 @@
+/* Custom Properties / Theme Variables */
+:root {
+  --bg-gradient: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-border: rgba(255, 255, 255, 0.6);
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --btn-bg: #ffffff;
+  --btn-text: #334155;
+  --btn-border: #cbd5e1;
+  --primary-accent: #4f46e5;
+  --primary-hover: #4338ca;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+  --shadow-hover: 0 12px 20px -5px rgba(79, 70, 229, 0.3);
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+/* Reset & Layout */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px 16px;
+}
+
+/* Main Container Card */
+.dashboard-container {
+  width: 100%;
+  max-width: 680px;
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  box-shadow: var(--shadow-md);
+}
+
+/* Typography */
+h1 {
+  color: var(--text-main);
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin: 0 0 32px 0;
+  text-align: center;
+}
+
+h2 {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 24px 0 12px 0;
+  text-align: left;
+}
+
+h2:first-of-type {
+  margin-top: 0;
+}
+
+/* Flexbox Grid Layout */
+.button-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+/* Button UI Styling */
+.tool-btn {
+  flex: 1;
+  min-width: 0; /* Prevents button text overflow issues */
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--btn-text);
+  background-color: var(--btn-bg);
+  padding: 14px 16px;
+  border: 1px solid var(--btn-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* Hover & Focus States */
+.tool-btn:hover {
+  background-color: var(--primary-accent);
+  color: #ffffff;
+  border-color: var(--primary-accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.tool-btn:focus-visible {
+  outline: 2px solid var(--primary-accent);
+  outline-offset: 2px;
+}
+
+/* Clicked State (JS Triggered) */
+.tool-btn.clicked,
+.tool-btn:active {
+  transform: translateY(-1px) scale(0.97);
+  box-shadow: 0 4px 8px -2px rgba(79, 70, 229, 0.2);
+}
+
+/* Responsive Tweaks for Mobile Screens */
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 24px 16px;
+  }
+
+  .button-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
