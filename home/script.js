@@ -11,21 +11,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Add click class for instant visual shrink animation
                 button.classList.add("clicked");
 
-                if (event.shiftKey) {
-                    // Open in new tab immediately to bypass browser popup blockers
-                    window.open(targetUrl, "_blank");
+                // Check if Shift key was held down during the click
+                const openInNewTab = event.shiftKey;
 
-                    // Remove visual feedback after delay
-                    setTimeout(() => {
-                        button.classList.remove("clicked");
-                    }, 150);
-                } else {
-                    // Open in current tab after brief animation delay
-                    setTimeout(() => {
-                        button.classList.remove("clicked");
-                        window.location.href = targetUrl;
-                    }, 150);
-                }
+                // Briefly pause so the user sees the animation before tab changes
+                setTimeout(() => {
+                    button.classList.remove("clicked");
+                    
+                    if (openInNewTab) {
+                        window.open(targetUrl, "_blank"); // Open in new tab if Shift held
+                    } else {
+                        window.location.href = targetUrl; // Open in current tab
+                    }
+                }, 150);
             }
         });
     });
